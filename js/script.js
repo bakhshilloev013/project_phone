@@ -109,62 +109,35 @@ document.addEventListener("DOMContentLoaded", () => {
     function onEqual(obj) {
         let val = input.value;
         if (valuesObj.symbol == "+") {
-            valuesObj.num2 = val.slice(val.search(/"+"/+1));
+            valuesObj.num2 = val.slice(val.indexOf("+")+1);
             result.textContent = (Number(valuesObj.num1) + Number(valuesObj.num2));
             input.value = 0;
         } else if (valuesObj.symbol == "-") {
-            valuesObj.num2 = val.slice(val.search(/"-"/+1));
-            result.textContent = (Number(valuesObj.num1) - Number(valuesObj.num2));
-            input.value = 0;
+            if (val[0] == "-") {
+                valuesObj.num2 = val.slice(val.indexOf("-", 1) + 1);
+                result.textContent =
+                Number(valuesObj.num1) - Number(valuesObj.num2);
+                input.value = 0;
+            } else {
+                valuesObj.num2 = val.slice(val.indexOf("-") + 1);
+                console.log(valuesObj.num2);
+                result.textContent =
+                  Number(valuesObj.num1) - Number(valuesObj.num2);
+                input.value = 0;
+            }
         } else if (valuesObj.symbol == "*") {
-            valuesObj.num2 = val.slice(val.search(/"*"/+1));
+            valuesObj.num2 = val.slice(val.indexOf("*") + 1);
             result.textContent = (Number(valuesObj.num1) * Number(valuesObj.num2));
             input.value = 0;
         } else if (valuesObj.symbol == "/") {
-            valuesObj.num2 = val.slice(val.search(/'\/'/+1));
+            valuesObj.num2 = val.slice(val.indexOf("/")+1);
             result.textContent = (Number(valuesObj.num1) / Number(valuesObj.num2));
             input.value = 0;
         } else if (valuesObj.symbol == "%") {
-            valuesObj.num2 = val.slice(val.search(/"%"/+1));
+            valuesObj.num2 = val.slice(val.indexOf("%")+1);
             result.textContent = (Number(valuesObj.num1) * Number(valuesObj.num2)) / 100;
             input.value = 0;
         }
     }
 
-    /*
-    function forPlusOrMinus() {
-        let i = 0;
-        if (input.value[input.value.length - 1] == "+") {
-            input.value = input.value.slice(0, -1)
-            input.value += "-";
-        } else {
-            input.value = input.value.slice(0, -1)
-            input.value += "+";
-        }            
-    }
-
-    function forDivide() {
-        if (input.value[input.value.length - 1] != "/") {
-            input.value += "/";
-        } else {
-            return;
-        }
-    }
-
-    function forPercent() {
-        if (input.value[input.value.length - 1] != "%") {
-            input.value += "%";
-        } else {
-            return;
-        }
-    }
-
-    function forMultiply() {
-        if (input.value[input.value.length - 1] != "*") {
-            input.value += "*";
-        } else {
-            return;
-        }
-    }
-    */
 });
