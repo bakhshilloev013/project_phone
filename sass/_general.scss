@@ -1,0 +1,255 @@
+body {
+    height: 900px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding-top: 15px;
+}
+.phone {
+    height: 600px;
+    width: 320px;
+    border: 1px solid #000;
+    background-color: #000;
+    padding: 10px 7px 10px 7px;
+    border-radius: 25px;
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    margin-right: 25px;
+    .display {
+        height: 100%;
+        width: 100%;
+        background: url("../img/bg/iphone_background.jpg") center center/cover no-repeat;
+        border-radius: 15px;
+        z-index: 1;
+        position: relative;
+        // cursor: pointer;
+        display: flex;
+        // flex-direction: column;
+        // justify-content: space-between;
+        justify-content: center;
+        overflow: hidden;
+        .navigation {
+            height: 25px;
+            width: 100%;
+            padding: 0 10px;
+            // background-color: gray;
+            color: #fff;
+            position: absolute;
+            top: 0;
+            z-index: 2;
+            border-radius: 15px 15px 0 0;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            cursor: pointer;
+            .time {
+                font-size: 13px;
+                font-weight: 500;
+            }
+            .right__info {
+                display: flex;
+                height: auto;
+                width: auto;
+                font-size: 14px;
+                .wifi {
+                    margin-right: 5px;
+                }
+            }
+        }
+        .applications {
+            height: 553px;
+            width: 100%;
+            position: relative;
+            padding: 5px;
+            border-radius: 0 0 15px 15px;
+            // border: 2px solid red;
+            top: 25px;
+            display: flex;
+            .calc__icon {
+                height: 35px;
+                width: 35px;
+                border-radius: 15px;
+                border: 1px solid #fff;
+                position: relative;
+                background: url("../img/bg/calc.png") center center/cover no-repeat;
+                cursor: pointer;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+            .calc__app {
+                height: 556px;
+                width: 308px;
+                position: absolute;
+                left: -3px;
+                top: -3px;
+                z-index: 3;
+                border-radius: 0 0 15px 15px;
+                background: rgb(10, 10, 10);
+                display: none;
+                transition: 0.5s all;
+                .inputs__block {
+                    height: 200px;
+                    width: 100%;
+                    border: 1px solid gray;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: end;
+                    input {
+                        background-color: rgb(10, 10, 10);
+                        // border: 1px solid red;
+                        border: none;
+                        outline: none;
+                        height: 50px;
+                        color: #fff;
+                        font-size: 25px;
+                        text-align: right;
+                        padding: 0 5px;
+                    }
+                    .result {
+                        height: 50px;
+                        width: 100%;
+                        background-color: rgb(10, 10, 10);
+                        color: #fff;
+                        // border: 1px solid blue;
+                        text-align: right;
+                        font-size: 25px;
+                        padding: 0 5px;
+                        // display: none;
+                    }
+                }
+                .buttons{
+                    height: 354px;
+                    width: 100%;
+                    // border: 2px solid blue;
+                    border-radius: 0 0 15px 15px;
+                    border-top: 1px solid rgb(43, 43, 43);
+                    padding: 10px 3px;
+                    table {
+                        height: 100%;
+                        width: 100%;
+                    }
+                    .btn {
+                        height: 55px;
+                        width: 55px;
+                        border-radius: 100%;
+                        font-size: 18px;
+                        font-weight: 500;
+                        border: none;
+                        &:hover {
+                            background-color: #fff;
+                            color: #000;
+                        }
+                    }
+                    .clear, .plus_or_minus, .percent {
+                        background-color: lightgray;
+                        color: #000;
+                        
+                    }
+                    .zero {
+                        width: 100%;
+                        border-radius: 35px;
+                    }
+                    .seven, .eight, .nine, .six, .five, .four, .three, .two, .one, .zero {
+                        background-color: dimgray;
+                        color: #fff;
+                    }
+                    .multiply, .divide, .plus, .minus, .equal, .full__stop {
+                        background-color: orange;
+                        color: #fff;
+                    }
+                }
+            }
+            .app_active {
+                display: block;
+            }
+        }
+        .home {
+            height: 15px;
+            width: 120px;
+            z-index: 3;
+            margin: 0 auto;
+            position: absolute;
+            cursor: pointer;
+            bottom: 0px;
+            &__line {
+                height: 3px;
+                width: 120px;
+                background-color: #fff;
+            }
+        }
+    }
+    .turn__off {
+        background-image: none;
+        background: rgb(43, 43, 43);
+        .applications {
+            display: none;
+            .calc__icon {
+                display: none;
+            }
+        }
+        .home {
+            display: none;
+        }
+        .navigation {
+            display: none;
+        }
+    }
+    .center {
+        height: 25px;
+        width: 130px;
+        background-color: #000;
+        border-radius: 0 0 10px 10px;
+        position: absolute;
+        padding-bottom: 5px;
+        top: 0;
+        display: flex;
+        justify-content: center;
+        align-items: flex-end;
+        z-index: 2;
+        .ear {
+            height: 3px;
+            width: 40px;
+            background-color: dimgrey;
+        }
+        .camera {
+            height: 5px;
+            width: 5px;
+            background-color: midnightblue;
+            margin-left: 5px;
+            border-radius: 100%;
+        }
+    }
+    
+}
+
+.power {
+    height: 50px;
+    width: 50px;
+    background-color: ghostwhite;
+    box-shadow: 0 0 15px 5px lightgrey;
+    color: red;
+    font-size: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 100%;
+    &:hover {
+        border: 2px solid red;
+    }
+    &:active {
+        box-shadow: 0 0 10px 5px red;
+    }
+}
+.power__active {
+    color: green;
+    &:hover {
+        border: 2px solid green;
+    }
+    &:active {
+        box-shadow: 0 0 10px 5px lightgreen;
+    }
+}
